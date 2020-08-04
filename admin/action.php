@@ -24,5 +24,6 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
                 exit();
             }
 }
+
 mysqli_close($con);
 ?>

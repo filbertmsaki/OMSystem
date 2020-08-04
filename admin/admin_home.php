@@ -1,6 +1,3 @@
-
-
-
 <?php
 include "header.php";
 ?>
@@ -38,11 +35,11 @@ include "header.php";
     </div>
     <div class="tab-pane container fade" id="products">
     <h3 style="text-align:center">Products List</h3>
-    
+    <?php include "product_list.php" ?>
     </div>
     <div class="tab-pane container fade" id="customers">
     <h3 style="text-align:center">Customer List</h3>
-    
+    <?php include "customer_list.php"; ?>
     </div>
     <div class="tab-pane container fade" id="sellers">
     <h3 style="text-align:center">Sellers List</h3>
