@@ -9,13 +9,13 @@ if(isset($_POST['btn_update']))
 {
 $f_name=$_POST['fname'];
 $l_name=$_POST['lname'];
-$email=$_POST['email'];
+$s_email=$_POST['email'];
 $mobile=$_POST['mobile'];
-$address=$_POST['address'];
-$password=$_POST['password'];
+$s_address=$_POST['address'];
+$s_password=$_POST['password'];
 
-mysqli_query($con,"update seller set fname='$fname', lname='$lname', email='$email', phone='$mobile', address='$address' password='$password' where seller_id='$seller_id'")or die("Query 2 is incorrect...");
-
+mysqli_query($con,"update seller set fname='$f_name', lname='$l_name', email='$s_email', phone='$mobile', address='$s_address', password='$s_password' where seller_id='$seller_id'")or die("Query 2 is incorrect...");
+echo '<script>alert("Seller updated Successful!");</script>';
 header("location: admin_home.php");
 mysqli_close($con);
 }
@@ -41,7 +41,7 @@ mysqli_close($con);
         <h3 style="text-align:center">Manage Sellers</h3>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" name="form" method="post" enctype="multipart/form-data">
               <div class="card-body">              
-                  <input type="hidden" name="seller_id" id="user_id" value="<?php echo $seller_id;?>" />
+                  <input type="hidden" name="seller_id" id="seller_id" value="<?php echo $seller_id;?>" />
                     <div class="col-md-12 ">
                       <div class="form-group">
                         <label>First name</label>

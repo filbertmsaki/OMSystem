@@ -50,12 +50,6 @@
     </head>
 	<body class="body">
     <header>
-			<div id="top-header">
-				<div class="container">					
-				
-				</div>
-			</div>
-
 			<div id="header">
 				<div class="container">
 					<div class="row">
