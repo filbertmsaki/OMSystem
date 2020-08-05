@@ -50,9 +50,9 @@
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
 										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>
-										 <div class='cart-action'><input type='number' class='product-quantity' name='quantity' value='1' size='2' />
-										 <input type='submit' value='Add to Cart' class='btnAddAction' />
-										 </div>
+										<div class='btn-group' style='margin-left: 25px; margin-top: 15px'>
+								        <a href='test.php?id=".$row['product_id']."' class='btn btn-fill btn-primary' pid='".$row['product_id']."' type='submit' id='btn_buy' name='btn_buy'>Add to Cart</a>
+                                        </div>	
 									</div>
 									</form>
 								</div>            
@@ -123,9 +123,9 @@
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
 										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>	
-										<div>
-										<a href='action.php?p_id=$pro_id&action=addToCart' type='button'  class='btn btn-info btn-link btn-sm' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'></i> add to cart</a>
-									</div>								
+										<div class='btn-group' style='margin-left: 25px; margin-top: 15px'>
+								        <a href='test.php?id=".$row['product_id']."' class='btn btn-fill btn-primary' pid='".$row['product_id']."' type='submit' id='btn_buy' name='btn_buy'>Add to Cart</a>
+                                        </div>								
 									</div>						
 								</div>         
 			";

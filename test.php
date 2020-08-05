@@ -10,4 +10,3 @@ mysqli_query($con,$sql);
 echo '<script>alert("Product added to cart Successful!");</script>';
 header("location: index.php");
 
-?>

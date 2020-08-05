@@ -3,9 +3,9 @@ session_start();
 include "db.php";
 if (isset($_POST["f_name"])) {
 
-	$f_name = $_POST["f_name"];
-	$l_name = $_POST["l_name"];
-	$phone = $_POST['mobile'];
+	$f_name = $_POST['f_name'];
+	$l_name = $_POST['l_name'];
+	$phone = $_POST['phone'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$repassword = $_POST['repassword'];
@@ -77,7 +77,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 			</div>
 		";
 	}
-	if(!preg_match($number,$mobile)){
+	if(!preg_match($number,$phone)){
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -109,10 +109,8 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 	} else {
 		
 		$sql = "INSERT INTO 'buyer' 
-		('buyer_id', 'fname', 'lname', 'phone', 
-		'email','password', 'address') 
-		VALUES (NULL, '$f_name', '$l_name', '$phone', 
-		'$email', '$password', '$address')";
+		('buyer_id', 'fname', 'lname', 'phone', 'email','password', 'address') 
+		VALUES (NULL, '$f_name', '$l_name', '$phone', '$email', '$password', '$address')";
 		$run_query = mysqli_query($con,$sql);
 		$_SESSION["uid"] = mysqli_insert_id($con);
 		$_SESSION["name"] = $f_name;

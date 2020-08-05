@@ -30,10 +30,10 @@
                                         <input class="input form-control input-borders" type="password" name="repassword" id="repassword" placeholder="confirm password">
                                     </div>
                                     <div class="form-group">
-                                        <input class="input form-control input-borders" type="text" name="phone" id="mobile" placeholder="mobile">
+                                        <input class="input form-control input-borders" type="number" name="phone" id="mobile" placeholder="mobile">
                                     </div>
                                     <div class="form-group">
-                                        <input class="input form-control input-borders" type="text" name="address" id="address1" placeholder="Address">
+                                        <input class="input form-control input-borders" type="text" name="address" id="address" placeholder="Address">
                                     </div>                                   
                                     <div style="form-group">
                                        <input class="primary-btn btn-block"  value="Sign Up" type="submit" name="signup_button">

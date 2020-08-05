@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2020 at 02:01 PM
+-- Generation Time: Aug 05, 2020 at 09:54 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -68,7 +68,8 @@ INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
 (5, 'Tecno'),
 (6, 'Huawei'),
 (7, 'Nokia'),
-(8, 'Xhaomi');
+(8, 'Xhaomi'),
+(9, 'Blackberry');
 
 -- --------------------------------------------------------
 
@@ -92,10 +93,9 @@ CREATE TABLE `buyer` (
 
 INSERT INTO `buyer` (`buyer_id`, `fname`, `lname`, `phone`, `email`, `password`, `address`) VALUES
 (1, 'Ali', 'Aliin', '00759140094', 'ali@gmail.com', '984d8144fa08bfc637d2825463e184fa', 'Kinondoni Mkwajuni'),
-(2, 'Khalid', 'Mushi', '0786342663', 'mushi@gmail.com', '22e276ec8781c1a90d47e93d5c04cd7e', 'Tabata'),
-(3, 'Masoud', 'Ndugu', '0759140094', 'soud@gmail.com', '51c08d63d3d488afbc66f4cbb3ff5be3', 'Kijitonyama'),
-(4, 'Sonia', 'Samir', '0711111111', 'soni@oms.com', 'soni123', 'Tandika'),
-(5, 'Rose', 'Michael', '0234879809', 'rose@oms.com', 'rose123', 'Buguruni');
+(6, 'Ali', 'Aliin', '00759140094', 'ali@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Kinondoni Mkwajuni'),
+(7, 'Amina', 'Amani', '0759140094', 'amina@gmail.com', 'amina123', 'Muleba'),
+(8, 'Donna', 'Donee', '0988565621', 'donna@gmail.com', 'donna123', 'Mombo');
 
 -- --------------------------------------------------------
 
@@ -110,6 +110,31 @@ CREATE TABLE `cart` (
   `qty` int(10) DEFAULT NULL,
   `ip_add` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `p_id`, `buyer_id`, `qty`, `ip_add`) VALUES
+(1, 13, 0, 1, '127.0.0.1'),
+(2, 13, 6, 1, '127.0.0.1'),
+(3, 13, 6, 1, '127.0.0.1'),
+(4, 13, 6, 1, '127.0.0.1'),
+(5, 10, 0, 1, '127.0.0.1'),
+(6, 7, 0, 1, '127.0.0.1'),
+(7, 10, 0, 1, '127.0.0.1'),
+(8, 10, 0, 1, '127.0.0.1'),
+(9, 10, 0, 1, '127.0.0.1'),
+(10, 13, 0, 1, '127.0.0.1'),
+(11, 13, 0, 1, '127.0.0.1'),
+(12, 10, 0, 1, '127.0.0.1'),
+(13, 7, 0, 1, '127.0.0.1'),
+(14, 7, 6, 1, '127.0.0.1'),
+(15, 11, 6, 1, '127.0.0.1'),
+(16, 10, 6, 1, '127.0.0.1'),
+(17, 13, 6, 1, '127.0.0.1'),
+(18, 10, 6, 1, '127.0.0.1'),
+(19, 7, 6, 1, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -185,11 +210,11 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_desc`, `product_image`, `product_price`, `seller_id`, `cat_id`, `brand_id`, `product_keywords`) VALUES
-(7, 'Tecno J8', 'Barand new Tecno J8, Storage 32GB', '1596394735_tecno.jpg', 540000, NULL, 1, 5, 'Tecno J8 Android'),
-(8, 'Huawei P40', 'Huawei storage 128gb ram 4gb', '1596395362_HuaweiP40.jpg', 620000, NULL, 3, 6, 'Huawei P40'),
-(9, 'Huawei P40', 'Huawei storage 128gb ram 4gb', '1596395533_HuaweiP40.jpg', 620000, NULL, 3, 6, 'Huawei P40'),
-(10, 'Huawei P40', 'Huawei storage 128gb ram 4gb', '1596395561_HuaweiP40.jpg', 620000, NULL, 3, 6, 'Huawei P40'),
-(11, 'Brackberry B1', 'Barand new Brackberry Smart phone, Storage 32GB', '1596520184_b1.jpg', 430000, NULL, 4, 4, 'Brackberry B1');
+(7, 'Tecno J8', 'Barand new Tecno J8, Storage 32GB', '1596394735_tecno.jpg', 540000, NULL, 1, 6, 'Tecno J8 Android'),
+(10, 'Huawei P40', 'Huawei storage 128gb ram 4gb', '1596395561_HuaweiP40.jpg', 610000, NULL, 1, 1, 'Huawei P40'),
+(11, 'Brackberry B1', 'Barand new Brackberry Smart phone, Storage 32GB', '1596520184_b1.jpg', 430000, NULL, 4, 9, 'Brackberry B1'),
+(12, 'Iphone 10 pro', 'Barand new iPhone 10 pro, Storage 32GB', '1596644473_i10.jpg', 780000, NULL, 2, 3, 'iPhone 10 Pro'),
+(13, 'Iphone 10 pro', 'Barand new iPhone 10 pro, Storage 32GB', '1596644556_i10.jpg', 780000, NULL, 2, 3, 'iPhone 10 Pro');
 
 -- --------------------------------------------------------
 
@@ -212,8 +237,7 @@ CREATE TABLE `seller` (
 --
 
 INSERT INTO `seller` (`seller_id`, `fname`, `lname`, `email`, `phone`, `address`, `password`) VALUES
-(2, 'Amani', 'Hakeem', 'amani@oms.com', '0737777338', 'Tanga', 'amani123'),
-(5, 'Asha', 'Mongi', 'asha@oms.com', '0987234256', 'Mombasa', 'asha123');
+(2, 'Amani', 'Hakeem', 'amani@oms.com', '0737777222', 'Moshi', 'amani123');
 
 --
 -- Indexes for dumped tables
@@ -293,19 +317,19 @@ ALTER TABLE `admin_info`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `brand_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `brand_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `buyer`
 --
 ALTER TABLE `buyer`
-  MODIFY `buyer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `buyer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -323,13 +347,13 @@ ALTER TABLE `order_products`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `seller`
 --
 ALTER TABLE `seller`
-  MODIFY `seller_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `seller_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
