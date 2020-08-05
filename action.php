@@ -1,7 +1,68 @@
 <?php
 session_start();
+
 $ip_add = getenv("REMOTE_ADDR");
 include "db.php";
+if(isset($_GET['action']) && $_GET['action']!="" && $_GET['action']=='addToCart'){
+	$p_id = $_GET["p_id"];
+
+	if(isset($_SESSION["uid"])){
+	$user_id = $_SESSION["uid"];
+	$sql = "SELECT * FROM cart WHERE p_id = '$p_id' AND buyer_id = '$user_id'";
+	$run_query = mysqli_query($con,$sql);
+	$count = mysqli_num_rows($run_query);
+	if($count > 0){
+		echo "
+			<div class='alert alert-warning'>
+					<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+					<b>Product is already added into the cart Continue Shopping..!</b>
+			</div>
+		";
+		header("location: index.php");
+	} else {
+		$sql = "INSERT INTO 'cart'
+		('p_id', 'buyer_id', 'qty','ip_add') 
+		VALUES ('$p_id','$user_id','1','$ip_add')";
+		if(mysqli_query($con,$sql)){
+			echo "
+				<div class='alert alert-success'>
+					<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+					<b>Product is Added to cart..!</b>
+				</div>
+			";
+			header("location: index.php");
+		}
+	}
+	}else{
+		$sql = "SELECT cart_id FROM cart WHERE ip_add = '$ip_add' AND p_id = '$p_id' AND buyer_id = -1";
+		$query = mysqli_query($con,$sql);
+		if (mysqli_num_rows($query) > 0) {
+			echo "
+				<div class='alert alert-warning'>
+						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+						<b>Product is already added into the cart Continue Shopping..!</b>
+				</div>";
+				header("location: index.php");
+				exit();
+				
+		}
+		$sql = "INSERT INTO 'cart'
+		('p_id','buyer_id','qty', 'ip_add') 
+		VALUES ('$p_id','-1','1','$ip_add')";
+		if (mysqli_query($con,$sql)) {
+			echo "
+				<div class='alert alert-success'>
+					<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+					<b>Your product is Added Successfully..!</b>
+				</div>
+			";
+			header("location: index.php");
+			exit();
+			
+		}
+		
+	}
+}
 if(isset($_POST["category"])){
 	$category_query = "SELECT * FROM categories";
     
@@ -192,9 +253,10 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 			$_SESSION["cart_item"] = $itemArray;
 		}
 	}
+	//cart tek
+	
 
-
-	if(isset($_POST["addToCart"])){
+	if(isset($_POST["addToCart00"])){
 		$p_id = $_POST["proId"];
 
 		if(isset($_SESSION["uid"])){

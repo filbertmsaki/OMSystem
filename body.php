@@ -124,7 +124,7 @@
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
 										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>	
 										<div>
-										<button pid='$pro_id' id='product' class='add-to-cart-btn block2-btn-towishlist' href='#'><i class='fa fa-shopping-cart'></i> add to cart</button>
+										<a href='action.php?p_id=$pro_id&action=addToCart' type='button'  class='btn btn-info btn-link btn-sm' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'></i> add to cart</a>
 									</div>								
 									</div>						
 								</div>         

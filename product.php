@@ -109,7 +109,10 @@ include "header.php";
 
 							<div>
 								<div class="btn-group" style="margin-left: 25px; margin-top: 15px">
-								<button class="add-to-cart-btn" pid="'.$row['product_id'].'"  id="product" ><i class="fa fa-shopping-cart"></i> add to cart</button>
+								
+								
+								<a href="test.php?id='.$row['product_id'].'" class="btn btn-fill btn-primary" pid="'.$row['product_id'].'" type="submit" id="btn_buy" name="btn_buy">Add to Cart</a>
+								
                                 </div>	
 							</div>
 

@@ -2,7 +2,7 @@
 
 if(isset($_GET['action']) && $_GET['action']!="" && $_GET['action']=='delete')
 {
-    
+   include_once "../db.php"; 
 $p_id=$_GET['product_id'];
 
 mysqli_query($con,"delete from product where product_id='$p_id'")or die("query is incorrect...");

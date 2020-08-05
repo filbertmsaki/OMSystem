@@ -2,7 +2,7 @@
 
 if(isset($_GET['action']) && $_GET['action']!="" && $_GET['action']=='delete')
 {
-    include "../db.php";
+    
 $seller_id=$_GET['seller_id'];
 
 mysqli_query($con,"delete from seller where seller_id='$seller_id'")or die("query is incorrect...");
@@ -39,9 +39,10 @@ header("location: admin_home.php#sellers");
                               <div class='ripple-container'></div></a>
                         </td></tr>";
                         }
-                        mysqli_close($con);
+                        
                         ?>
                     </tbody>
                   </table> 
                   </div>
         </div>
+       
